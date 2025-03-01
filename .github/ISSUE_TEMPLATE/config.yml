@@ -1,0 +1,5 @@
+# Issue作成時のテンプレート設定
+defaults:
+  - template: "task.yml"
+    name: "タスクチケット"
+    about: "基本タスク"
