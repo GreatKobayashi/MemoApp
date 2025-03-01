@@ -1,6 +1,6 @@
 blank_issues_enabled: true
 # Issue作成時のテンプレート設定
 defaults:
-  - template: "task.yml"
+  - template: "task.md"
     name: "タスクチケット"
     about: "基本タスク"
