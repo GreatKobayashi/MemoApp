@@ -1,0 +1,26 @@
+﻿@page "/"
+@using MemoApp.Domain.Entities
+@using MemoApp.Domain.Repositories
+@using MemoApp.UI.Pages.ViewModels
+@inject HomeViewModel _viewModel
+
+@if (!_viewModel.IsInitialized) return;
+
+<MemoList Memos="_viewModel.Memos" />
+<div style="position: fixed; bottom: 50px; right: 30px;">
+    <CascadingValue Name="OnClick" Value="GoToCreateMemoPage">
+        <PlusButton />
+    </CascadingValue>
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await _viewModel.InitializeAsync();
+    }
+
+    private void GoToCreateMemoPage()
+    {
+        // TODO: メモ作成ページに遷移
+    }
+}

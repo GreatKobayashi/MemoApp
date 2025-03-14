@@ -1,0 +1,16 @@
+﻿@using MemoApp.Domain.Entities
+
+@if (Memos is null) return;
+<div class="d-flex flex-column p-2">
+    @foreach (var memo in Memos)
+    {
+        <div class="d-flex justify-content-center my-1">
+            <MemoColumn Memo="memo" />
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public required List<MemoEntity> Memos { get; set; }
+}

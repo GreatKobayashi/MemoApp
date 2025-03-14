@@ -1,0 +1,18 @@
+﻿@using MemoApp.Domain.Entities
+@using System.Text
+
+<div class="border border-2 memo-column">
+    <div class="mx-2 mt-2 memo-title">
+        <Text FontSize="22" IsBold=true>@Memo.Title</Text>
+    </div>
+    <div class="mx-2 memo-header">
+        <Text FontSize="15">@GetMemoHeader(_headerLength)</Text>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public required MemoEntity Memo { get; set; }
+
+    private static readonly int _headerLength = 36;
+}
