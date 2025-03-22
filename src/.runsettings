@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <ResultsDirectory>.\TestResults</ResultsDirectory>
+    <MaxCpuCount>1</MaxCpuCount>
+  </RunConfiguration>
+  <!-- Configurations for data collectors -->
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat Code Coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Exclude>[MemoApp.UI]MemoApp.UI.MainPage</Exclude>
+          <ExcludeByFile>**/MemoApp.UI/MauiProgram.cs,**/MemoApp.UI/App.cs,</ExcludeByFile>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

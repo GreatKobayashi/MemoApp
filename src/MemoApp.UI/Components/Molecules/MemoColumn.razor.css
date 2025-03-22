@@ -1,0 +1,12 @@
+.memo-column {
+    border-radius: 1.0rem;
+    width: 350px;
+}
+
+.memo-title {
+    margin-bottom: -0.5rem;
+}
+
+.memo-header {
+    margin-bottom: -0.5rem;
+}

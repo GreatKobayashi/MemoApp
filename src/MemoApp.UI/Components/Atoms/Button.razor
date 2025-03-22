@@ -1,0 +1,11 @@
+﻿<button type="button" class="btn btn-custom shadow" @onclick=@OnClick>
+    @ChildContent
+</button>
+
+@code {
+    [CascadingParameter(Name = "OnClick")]
+    public required Action OnClick { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

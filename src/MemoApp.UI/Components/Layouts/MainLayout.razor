@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <main>
+        <ErrorBoundary>
+            <ChildContent>
+                <div class="fixed-top">
+                    <TitleBar />
+                </div>
+                <article class="content">
+                    @Body
+                </article>
+            </ChildContent>
+            <ErrorContent>
+                <p class="text-danger">システムエラーが発生</p>
+                <p>@context.Message</p>
+            </ErrorContent>
+        </ErrorBoundary>
+    </main>
+</div>
+
+@code {
+
+}

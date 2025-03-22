@@ -1,0 +1,11 @@
+﻿
+@font-face {
+    font-family: 'TanukiMagic';
+    src: url('/fonts/TanukiMagic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

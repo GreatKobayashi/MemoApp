@@ -1,0 +1,12 @@
+.btn-custom {
+    background-color: #ece6f0;
+    color: black;
+    width: 60px;
+    height: 60px;
+    border-radius: 1.0rem;
+}
+
+    .btn-custom:active {
+        background-color: #d4cdd8;
+        color: black;
+    }

@@ -1,0 +1,17 @@
+﻿<p class="text-default" style="@GetStyle()">@ChildContent</p>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public int? FontSize { get; set; }
+    [Parameter]
+    public bool IsBold { get; set; } = false;
+
+    private string GetStyle()
+    {
+        var fontSize = FontSize.HasValue ? $"font-size: {FontSize}px;" : string.Empty;
+
+        return $"{fontSize} {(IsBold ? "font-weight:bold;" : string.Empty)}";
+    }
+}

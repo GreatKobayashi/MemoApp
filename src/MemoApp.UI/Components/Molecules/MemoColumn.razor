@@ -1,0 +1,35 @@
+﻿@using MemoApp.Domain.Entities
+@using System.Text
+
+<div class="border border-2 memo-column">
+    <div class="mx-2 mt-2 memo-title" data-type="title">
+        <Text FontSize="22" IsBold=true>@Memo.Title</Text>
+    </div>
+    <div class="mx-2 memo-header" data-type="header">
+        <Text FontSize="15">@GetMemoHeader(_headerLength)</Text>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public required MemoEntity Memo { get; set; }
+
+    private static readonly int _headerLength = 36;
+
+    private string GetMemoHeader(int headerLength)
+    {
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+        // Shift-JISでのバイト数を取得する
+        var encoding = Encoding.GetEncoding("shift_jis");
+        var numberOfBytes = encoding.GetByteCount(Memo.Body);
+
+        if (numberOfBytes <= headerLength)
+        {
+            return Memo.Body;
+        }
+
+        var header = new string(Memo.Body.TakeWhile((_, i) => encoding.GetByteCount(Memo.Body[0..i]) < headerLength).ToArray());
+        return header + "…";
+    }
+}
