@@ -5,7 +5,7 @@ namespace MemoApp.Infrastructure.Fake
 {
     public class MemoFake : IMemoRepository
     {
-        public async Task<List<MemoEntity>> GetAllMemosAsync()
+        public async Task<List<MemoEntity>> GetAllEntitiesAsync()
         {
             var dummy = new List<MemoEntity>()
             {

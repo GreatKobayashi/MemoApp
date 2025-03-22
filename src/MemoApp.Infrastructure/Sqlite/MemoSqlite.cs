@@ -5,7 +5,7 @@ namespace MemoApp.Infrastructure.Sqlite
 {
     public class MemoSqlite : IMemoRepository
     {
-        public Task<List<MemoEntity>> GetAllMemosAsync()
+        public Task<List<MemoEntity>> GetAllEntitiesAsync()
         {
             throw new NotImplementedException();
         }

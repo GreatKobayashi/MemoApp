@@ -14,7 +14,7 @@ namespace MemoApp.UI.Pages.ViewModels
 
         public async Task InitializeAsync()
         {
-            Memos = await _memoRepository.GetAllMemosAsync();
+            Memos = await _memoRepository.GetAllEntitiesAsync();
             IsInitialized = true;
         }
 

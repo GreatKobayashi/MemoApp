@@ -11,5 +11,6 @@ namespace MemoApp.Domain
 
         public static string SettingFilePath { get; } = "Setting.json";
         public static bool IsFake { get; private set; } = true;
+        public static List<Exception> UnhandledExceptions { get; } = new();
     }
 }

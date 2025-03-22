@@ -4,6 +4,6 @@ namespace MemoApp.Domain.Repositories
 {
     public interface IMemoRepository
     {
-        public Task<List<MemoEntity>> GetAllMemosAsync();
+        public Task<List<MemoEntity>> GetAllEntitiesAsync();
     }
 }
