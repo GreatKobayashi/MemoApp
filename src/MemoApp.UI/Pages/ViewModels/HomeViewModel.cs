@@ -3,7 +3,7 @@ using MemoApp.Domain.Repositories;
 
 namespace MemoApp.UI.Pages.ViewModels
 {
-    public class HomeViewModel : ViewModelBase
+    public class HomeViewModel : IHomeViewModel
     {
         private readonly IMemoRepository _memoRepository;
 
@@ -18,6 +18,7 @@ namespace MemoApp.UI.Pages.ViewModels
             IsInitialized = true;
         }
 
+        public bool IsInitialized { get; private set; }
         public List<MemoEntity>? Memos { get; private set; }
     }
 }

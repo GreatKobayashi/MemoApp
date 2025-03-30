@@ -22,8 +22,7 @@ namespace MemoApp.UI
                         fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     });
 
-                builder.Services.AddSingleton(_ => Factories.CreateMemoRepository());
-                builder.Services.AddSingleton<HomeViewModel>();
+                builder.Services.AddSingleton<IHomeViewModel>(new HomeViewModel(Factories.CreateMemoRepository()));
                 builder.Services.AddMauiBlazorWebView();
 #if DEBUG
                 builder.Services.AddBlazorWebViewDeveloperTools();

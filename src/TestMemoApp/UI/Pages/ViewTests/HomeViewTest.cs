@@ -1,5 +1,4 @@
 ﻿using MemoApp.Domain.Entities;
-using MemoApp.Domain.Repositories;
 using MemoApp.UI.Components.Molecules;
 using MemoApp.UI.Components.Organisms;
 using MemoApp.UI.Pages.ViewModels;
@@ -14,20 +13,17 @@ namespace TestMemoApp.UI.Pages.ViewTests
         [TestMethod]
         public async Task TestLifeCycleAndEvents()
         {
-            var mockRepository = new Mock<IMemoRepository>();
-            var viewModel = new HomeViewModel(mockRepository.Object);
-            mockRepository.SetupSequence(x => x.GetAllEntitiesAsync())
-                .ReturnsAsync(new List<MemoEntity> { new("title", "body") });
-            var services = new ServiceCollection();
+            var mockViewModel = new Mock<IHomeViewModel>();
+            mockViewModel.Setup(x => x.IsInitialized).Returns(true);
+            mockViewModel.Setup(x => x.Memos).Returns(new List<MemoEntity> { new("title1", "body1") });
 
             using var bUnit = new TestContext();
-            bUnit.Services.AddSingleton(viewModel);
+            bUnit.Services.AddSingleton(mockViewModel.Object);
 
             var homeView = bUnit.RenderComponent<HomeView>();
             await Task.Delay(100);
 
-            mockRepository.Verify(x => x.GetAllEntitiesAsync(), Times.Once);
-            Assert.IsTrue(viewModel.IsInitialized);
+            mockViewModel.Verify(x => x.InitializeAsync(), Times.Once);
 
             var memoList = homeView.FindComponent<MemoList>();
             var plusButton = homeView.FindComponent<PlusButton>();
